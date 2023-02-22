@@ -5,6 +5,7 @@
 CREATE OR REPLACE FUNCTION get_actor_ids(text) RETURNS TABLE(actor_id INTEGER) AS
 $$
 -- FIXME: implementation goes here
+RETURN SELECT actor_id FROM actor WHERE first_name ILIKE(SELECT  CONCAT    (text,'%')) ORDER BY actor_id ASC;
 $$
 LANGUAGE SQL
 IMMUTABLE
